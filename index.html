@@ -1,1 +1,113 @@
-<script> </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <script>
+        function getComputerChoice(answer){
+            randomAnswer = Math.floor(Math.random() * 3);
+
+            let computerChoice;
+
+            if (randomAnswer === 0) {
+                computerChoice = 'Rock';
+                
+            } else if (randomAnswer === 1) {
+                computerChoice = 'Paper';
+                
+            } else {
+                computerChoice = "Scissors";
+                
+            }
+            console.log('Computer chose: ' + computerChoice)
+        }
+        getComputerChoice()
+         </script> -->
+
+        <script>
+        function getComputerAnswer(answers){
+            answers = ["rock", "paper", "scissors"] ;
+            let randomAnswer = Math.floor(Math.random() * answers.length);
+
+            let chosenAnswer = answers[randomAnswer];
+
+            return chosenAnswer;
+            console.log('Computer chose: ' + chosenAnswer);
+          
+        }
+
+        
+
+        function getPlayerAnswer(answers){
+            answers = ["rock", "paper", "scissors"];
+            let randomAnswer = Math.floor(Math.random() * answers.length);
+
+            let chosenAnswer = answers[randomAnswer];
+            return chosenAnswer;
+            console.log('Player chose: ' + chosenAnswer);
+            
+            }
+            
+
+        function playRound(playerChoices, computerChoices) {
+            if ((getComputerAnswer() === 'rock' && getPlayerAnswer() === 'scissors') || (getComputerAnswer() === 'scissors' && getPlayerAnswer() === 'rock')) {
+                console.log('You lose! Rock beats scissors.')
+            } else if ((getComputerAnswer() === 'paper' && getPlayerAnswer() === 'scissors') || (getComputerAnswer() === 'scissors' && getPlayerAnswer() === 'paper')) {
+                console.log('You lose! Scissors beats paper.')
+            } else if ((getComputerAnswer() === 'paper' && getPlayerAnswer() === 'rock') || (getComputerAnswer() === 'rock' && getPlayerAnswer() === 'paper')) {
+                console.log('You lose! Paper beats rock.')
+            } else if ((getComputerAnswer() === 'paper') && (getPlayerAnswer() === 'paper')) {
+                console.log('Draw, play again!')
+            }  else if ((getComputerAnswer() === 'rock') && (getPlayerAnswer() === 'rock')) {
+                console.log('Draw, play again!')  
+            }  else if ((getComputerAnswer() === 'scissors') && (getPlayerAnswer() === 'scissors')) {
+                console.log('Draw, play again!')
+            }  
+            return 
+
+        }
+
+        getComputerAnswer();
+        getPlayerAnswer()
+        playRound()
+       
+        const playerChoices = getPlayerAnswer();
+        const computerChoices = getComputerAnswer();
+        console.log(getComputerAnswer());
+        console.log(getPlayerAnswer());
+        
+        // console.log(playRound());
+
+            
+
+
+
+
+
+
+        // function playARound(playerChoices, computerChoices) {
+        //     playerChoices = ["rock", "paper", "scissor"];
+        //     let randomAnswer = Math.floor(Math.random() * answers.length);
+
+        //     computerChoices = ["rock", "paper", "scissor"];
+        //     let answer = Math.floor(Math.random() * answers.length);
+
+        //     randomAnswer = playerChoices ;
+        //     answer = computerChoices;
+
+        //     return playerChoices, computerChoices
+
+        //     console.log(playARound(playerChoices, computerChoices));
+        // }
+       
+            
+        
+     </script>
+</body>
+</html>
+
+
