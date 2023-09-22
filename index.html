@@ -35,8 +35,9 @@
 
             let chosenAnswer = answers[randomAnswer];
 
-            return chosenAnswer;
             console.log('Computer chose: ' + chosenAnswer);
+            return chosenAnswer;
+            
           
         }
 
@@ -47,8 +48,10 @@
             let randomAnswer = Math.floor(Math.random() * answers.length);
 
             let chosenAnswer = answers[randomAnswer];
+
+            // console.log('Player chose: ' + chosenAnswer);
             return chosenAnswer;
-            console.log('Player chose: ' + chosenAnswer);
+            
             
             }
             
@@ -71,23 +74,20 @@
 
         }
 
-        getComputerAnswer();
-        getPlayerAnswer()
-        playRound()
+        // getComputerAnswer();
+        // getPlayerAnswer();
+        // playRound();
        
         const playerChoices = getPlayerAnswer();
         const computerChoices = getComputerAnswer();
-        console.log(getComputerAnswer());
-        console.log(getPlayerAnswer());
-        
-        // console.log(playRound());
-
+        const winner = playRound(getComputerAnswer(), getPlayerAnswer());
+        console.log(computerChoices);
+        console.log(playerChoices);
+    </script>
             
 
 
-
-
-
+    <script>
 
         // function playARound(playerChoices, computerChoices) {
         //     playerChoices = ["rock", "paper", "scissor"];
@@ -104,7 +104,34 @@
         //     console.log(playARound(playerChoices, computerChoices));
         // }
        
-            
+//         switch (true) {
+//     case (getComputerAnswer() === 'rock' && getPlayerAnswer() === 'scissors') || (getComputerAnswer() === 'scissors' && getPlayerAnswer() === 'rock'):
+//         console.log('You lose! Rock beats scissors.');
+//         break;
+
+//     case (getComputerAnswer() === 'paper' && getPlayerAnswer() === 'scissors') || (getComputerAnswer() === 'scissors' && getPlayerAnswer() === 'paper'):
+//         console.log('You lose! Scissors beats paper.');
+//         break;
+
+//     case (getComputerAnswer() === 'paper' && getPlayerAnswer() === 'rock') || (getComputerAnswer() === 'rock' && getPlayerAnswer() === 'paper'):
+//         console.log('You lose! Paper beats rock.');
+//         break;
+
+//     case (getComputerAnswer() === 'paper') && (getPlayerAnswer() === 'paper'):
+//     console.log('Draw, play again!');
+//         break;
+
+//     case (getComputerAnswer() === 'rock') && (getPlayerAnswer() === 'rock'):
+//     console.log('Draw, play again!');
+//         break;
+//     case (getComputerAnswer() === 'scissors') && (getPlayerAnswer() === 'scissors'):
+//         console.log('Draw, play again!');
+//         break;
+// }
+  
+
+         
+         
         
      </script>
 </body>
