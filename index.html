@@ -7,7 +7,9 @@
 </head>
 <body>
         
-        <script>        
+        <script>  
+        const answers = ["rock", "paper", "scissors"];
+            
 
         function getComputerAnswer(answers){
             
@@ -33,7 +35,7 @@
             // // console.log('Player chose: ' + chosenAnswer);
 
             return playerAnswer;
-            }
+        }        
            
                   
         function playRound(playerChoices, computerChoices) {
@@ -42,74 +44,102 @@
                 return "Player has to enter either: 'Rock', 'Paper' or 'Scissors'. \nTry Again"
                 // console.log("Player can only enter either: 'Rock', 'Paper' or 'Scissors'. \nPlease Try Again")
 
-            } else if ((playerChoices === 'scissors') && (computerChoices === 'rock')) { 
-                let computerWins = 1;                                 
-                return'Computer wins! Rock breaks scissors.'
-                console.log('Computer wins! Rock breaks scissors.')
-                
+            } else if ((playerChoices === 'scissors') && (computerChoices === 'rock')) {                     
+                //console.log('Computer wins! Rock breaks scissors.')                 
+                return 'computer';
+               
+                   
             } else if((playerChoices === 'rock') && (computerChoices === 'scissors')) {
-                return 'Player Wins! Rock breaks scissors.'
-                console.log('Player Wins! Rock breaks scissors.')
+                //console.log('Player Wins! Rock breaks scissors.')
+                return 'player';
+                
 
             } else if ((computerChoices === 'paper') && (playerChoices === 'scissors')) {
-               return 'Player wins! Scissors cut paper.'
-                console.log('Player wins! Scissors cut paper.')
+                //console.log('Player wins! Scissors cut paper.')
+                 return 'player';
+               
 
             } else if((computerChoices === 'scissors') && (playerChoices === 'paper')) {
-                return 'Computer wins! Scissors cut paper.'
-                console.log('Computer wins! Scissors cut paper.')
+                //console.log('Computer wins! Scissors cut paper.')
+                return 'computer';
+                
 
             } else if ((computerChoices === 'paper') && ( playerChoices === 'rock')) {
-                return 'Player loses! Paper covers rock.'
-                console.log('Player loses! Paper covers rock.')
+                //console.log('Player loses! Paper covers rock.')
+                return 'computer';
+               
 
             } else if ((computerChoices === 'rock') && (playerChoices === 'paper')){
-                return 'Player wins! Paper covers rock.'
-                console.log('Player wins! Paper covers rock.')
+                //console.log('Player wins! Paper covers rock.')
+                return 'player';
+                
 
             } else if ((computerChoices === 'paper') && (playerChoices === 'paper')) {
-                return 'Draw, play again!'
-                console.log('Draw, play again!')
+                //console.log('Draw, play again!')
+                return 'Draw'
+                
 
             }  else if ((computerChoices === 'rock') && (playerChoices === 'rock')) {
-                return 'Draw, play again!'
-                console.log('Draw, play again!')  
+                //console.log('Draw, play again!') 
+                return 'Draw'
+                
 
             }  else if ((computerChoices === 'scissors') && (playerChoices === 'scissors')) {
-                return 'Draw, play again!'
-                console.log('Draw, play again!')
+                //console.log('Draw, play again!')  
+                return 'Draw'
+                
 
             }  else {
                 return "You can only enter either: 'Rock', 'Paper' or 'Scissors'."
-               console.log( "You can only enter either: 'Rock', 'Paper' or 'Scissors'.")
+               //console.log( "You can only enter either: 'Rock', 'Paper' or 'Scissors'.")
 
             }
-        
             
+            
+        
+           
         }
-        function game(playerWins, computerWins) {
-            let playerWins = 0;
-            let computerWins = 0;
-            for (let i = 0; i < 5; i++) {
-                const winner = playRound()
+        function game() {
+//   const answers = ['rock', 'paper', 'scissors'];
+  let playerScore = 0;
+  let computerScore = 0;
 
-            
-                } 
+  for (let round = 1; round <= 5; round++) {
+    const playerChoice = getPlayerAnswer(answers);
+    const computerChoice = getComputerAnswer(answers);
+    const result = playRound(computerChoice, playerChoice);
 
-             
-            // console.log(`Call ${i + 1}: ${result}`);
-            }
-            
-        
-    
-     
-        const answers = ["rock", "paper", "scissors"];
-        const playerChoices = getPlayerAnswer(answers);
-        const computerChoices = getComputerAnswer(answers);
-        console.log('Computer chose: ' + computerChoices);
-        console.log('Player chose: ' + playerChoices);
-        console.log(playRound(playerChoices, computerChoices));
+    console.log(`Round ${round}: Player chose ${playerChoice}, Computer chose ${computerChoice}`);
+  
+    if (result === 'player') {
+      playerScore++;
+      console.log('You win this round!\n');
+    } else if (result === 'computer') {
+      computerScore++;
+      console.log('Computer wins this round!\n');
+    } else {
+      console.log('It\'s a draw this round!\n');
+    }
+  }
+
+//   console.log('Game Over\n');
+//   if (playerScore > computerScore) {
+//     console.log(`You win the game! Score: Player ${playerScore}, Computer ${computerScore}`);
+//   } else if (computerScore > playerScore) {
+//     console.log(`Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`);
+//   } else {
+//     console.log('It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore);
+//   }
+}  
+         
+       
         console.log(game())
+       // const playerChoices = getPlayerAnswer(answers);
+        //const computerChoices = getComputerAnswer(answers); 
+       console.log('Computer chose: ' + computerChoices);
+       console.log('Player chose: ' + playerChoices);
+        console.log(playRound(playerChoices, computerChoices));
+        
        
         
    
