@@ -25,11 +25,79 @@
             let computerScore = 0;
             let computerWins = 0;
 
+            // Main div after title //
+            const gameResultDiv = document.createElement('div');
+                // gameResultDiv.innerHTML = '<h1>Game Results</h1>';
+                gameResultDiv.style.textAlign = 'center';
+                document.body.prepend(gameResultDiv);
+
+            const gameDivHeading = document.createElement('h1');
+            gameDivHeading.textContent = 'Play Game';
+            gameResultDiv.append(gameDivHeading);
+            
+            const display = document.createElement('div');
+                display.textContent = 'Display';
+                display.style.margin = 'auto';
+                display.style.textAlign = 'center';
+                gameResultDiv.append(display);
+
+            const roundCurrent = document.createElement('div');
+                display.append(roundCurrent);
+
+
+            const playerSelecion = document.createElement('div');
+                playerSelecion.textContent = 'Player choice: '; 
+                display.append(playerSelecion);
+
+            const computerSelecion = document.createElement('div');
+                computerSelecion.textContent = 'Computer\'s choice: ';
+                display.append(computerSelecion);
+
+            const currentPoint = document.createElement('div');
+                // currentPoint.textContent = 'currentPoint';
+                display.append(currentPoint);
+
+            const playerCurrentPoints = document.createElement('div');
+                playerCurrentPoints.textContent = 'Player Score: ';
+                display.append(playerCurrentPoints);
+
+            const computerCurrentPoints = document.createElement('div');
+                computerCurrentPoints.textContent = 'Computer Score: ';
+                display.append(computerCurrentPoints);
+
+            const roundResult= document.createElement('div');
+                // roundResult.textContent = 'round Result';
+                display.append(roundResult);
+
+            const roundWinner= document.createElement('div');
+                // roundWinner.textContent = 'round Winner';
+                display.append(roundWinner);
+
+            const gameOver = document.createElement('div');
+                // gameOver.textContent = 'game over';
+                display.append(gameOver);
+
+            const computerGameWins = document.createElement('div');
+                // computerGameWins.textContent = 'computer game wins';
+                display.append(computerGameWins);
+
+            const playerGameWins = document.createElement('div');
+                // playerGameWins.textContent = 'player game wins';
+                display.append(playerGameWins);
+
+
+            const winnerMessage = document.createElement('div');
+                // winnerMessage.textContent = 'winner msg';
+                display.append(winnerMessage);
+
+
+
 
 
             const rockBtn = document.getElementById('btn1');
             rockBtn.addEventListener('click', ()  => {
                 startNewRound('rock');
+
                 // const playerChoices = 'rock';
                 // const computerChoices = getComputerAnswer(answers);
                 // const result = playRound(playerChoices, computerChoices);
@@ -46,6 +114,7 @@
             const paperBtn = document.getElementById('btn2');
             paperBtn.addEventListener('click', ()  => {
                 startNewRound('paper');
+                // roundCurrent.style.display = 'none';
                 // const playerChoices = 'paper';
                 // const computerChoices = getComputerAnswer(answers);
                 // console.log(`Player picked ${playerChoices}`);
@@ -125,12 +194,27 @@
             }
 
             // Function to start a new round
-            function startNewRound(playerChoice) {
+           function startNewRound(playerChoice) {
                 const computerChoices = getComputerAnswer(answers);
-               // console.log(`Round ${currentRound}: Player chose ${playerChoice}, Computer chose ${computerChoices}`);
                 const result = playRound(playerChoice, computerChoices);
-               // console.log(result);
-               // console.log(`Computer Score: ${computerScore}. \nPlayer score: ${playerScore}`);
+                // for (currentRound = 1; currentRound <= 5; currentRound++){
+                    roundCurrent.textContent = `Round: ${currentRound}`;
+                    // roundCurrent.style.display = 'visbile';
+                    console.log(roundCurrent);
+                    // roundResult.textContent = `Player chose ${playerChoice}, Computer chose ${computerChoices}`;
+                    roundWinner.textContent = result;
+                    computerSelecion.textContent = `Computer chose: ${computerChoices}`;
+                    playerSelecion.textContent = `Player chose: ${playerChoice}`;
+                    playerCurrentPoints.textContent = `Player Score: ${playerScore}`;
+                    computerCurrentPoints.textContent = `Computer Score: ${computerScore}`;
+                    playerGameWins.textContent = `Player Games won: ${playerWins}`;
+                    computerGameWins.textContent = `Computer Games Won: ${computerWins}`;
+                    gameOver.textContent = '';
+                    winnerMessage.textContent = '';
+                    gameDivHeading.textContent = 'Game Play';
+                
+                // gameResultDiv.innerHTML = '<h1>Game Play</h1>'
+                // }
                 
                 // Move on to the next round or end the game
                 if (currentRound < 5) {
@@ -139,22 +223,49 @@
                 } 
                 else 
                 {
-                    console.log('Game over');
+                    gameDivHeading.textContent = 'Game Over!';
+                    gameOver.textContent = 'Game over';
                    // console.log(computerWins);
                     //console.log(playerWins);
                     if (playerScore > computerScore) {
-                        console.log(`You win the game! Score: Player ${playerScore}, Computer ${computerScore}`);
+                        winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
                     } else if (computerScore > playerScore) {
-                        console.log(`Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`);
+                        winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
                     } else {
-                        console.log('It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore);
+                        winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
                     }
+                    // winnerMessage.textContent = '';
                     currentRound = 1;
                     playerScore = 0;
                     playerWins = 0;
                     computerScore = 0;
                     computerWins = 0; 
-                }
+                    // gameResultDiv.innerHTML = '<h1>Game Results</h1>';
+                    
+                // roundCurrent.textContent      ;
+                // console.log(roundCurrent);
+                // // roundResult.textContent `Computer chose ${computerChoices}`;
+                // roundWinner.textContent = result;
+                // computerSelecion.textContent = '';                
+                // playerSelecion.textContent = '';           
+                // playerCurrentPoints.textContent = '';          
+                // computerCurrentPoints.textContent = '';              
+                // playerGameWins.textContent = '';             
+                // computerGameWins.textContent = '';
+                // gameOver.textContent = '';
+                
+                gameDivHeading.textContent = 'Game Results';
+                subHeading = document.createElement('p');
+                subHeading.textContent = 'Play again';
+                subHeading.style.fontSize = '16px';
+                // subHeading.style.textAlign = 'center';
+                gameDivHeading.append(subHeading);
+
+             
+            }
+               
+
+                
             }
 
             // Function to wait for button click event
@@ -163,6 +274,8 @@
                 const paperBtn = document.getElementById('btn2');
                 const scissorBtn = document.getElementById('btn3');
             }
+
+           
     
         </script>
     </body>
