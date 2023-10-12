@@ -127,10 +127,10 @@
             // Function to start a new round
             function startNewRound(playerChoice) {
                 const computerChoices = getComputerAnswer(answers);
-                console.log(`Round ${currentRound}: Player chose ${playerChoice}, Computer chose ${computerChoices}`);
+               // console.log(`Round ${currentRound}: Player chose ${playerChoice}, Computer chose ${computerChoices}`);
                 const result = playRound(playerChoice, computerChoices);
-                console.log(result);
-                console.log(`Computer Score: ${computerScore}. \nPlayer score: ${playerScore}`);
+               // console.log(result);
+               // console.log(`Computer Score: ${computerScore}. \nPlayer score: ${playerScore}`);
                 
                 // Move on to the next round or end the game
                 if (currentRound < 5) {
@@ -140,8 +140,8 @@
                 else 
                 {
                     console.log('Game over');
-                    console.log(computerWins);
-                    console.log(playerWins);
+                   // console.log(computerWins);
+                    //console.log(playerWins);
                     if (playerScore > computerScore) {
                         console.log(`You win the game! Score: Player ${playerScore}, Computer ${computerScore}`);
                     } else if (computerScore > playerScore) {
@@ -162,28 +162,6 @@
                 const rockBtn = document.getElementById('btn1');
                 const paperBtn = document.getElementById('btn2');
                 const scissorBtn = document.getElementById('btn3');
-
-                // rockBtn.addEventListener('click', () => {
-                //     startNewRound('rock');
-                // });
-
-                // paperBtn.addEventListener('click', () => {
-                //     startNewRound('paper');
-                // });
-
-                // scissorBtn.addEventListener('click', () => {
-                //     startNewRound('scissors');
-                // });
-            }
-            // Game play logic
-            function game(playerChoice) {
-                for (let round = 1; round <= 5; round++) {
-                const computerChoices = getComputerAnswer(answers);
-                console.log(`Round ${round}: Player chose ${playerChoice}, Computer chose ${computerChoices}`);
-                const result = playRound(playerChoice, computerChoices);
-                console.log(result);
-                console.log(`Computer Score: ${computerScore}. \nPlayer score: ${playerScore}`);
-                }
             }
     
         </script>
