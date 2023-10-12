@@ -18,23 +18,25 @@
             const answers = ["rock", "paper", "scissors"];
             
             let playerScore = 0;
-            let playerWins;
+            let playerWins = 0;
             let draw = 'Draw, play again!';
             let computerScore = 0;
-            let computerWins;
+            let computerWins = 0;
 
 
 
             const rockBtn = document.getElementById('btn1');
             rockBtn.addEventListener('click', ()  => {
                 startNewRound('rock');
-                const playerChoices = 'rock';
-                const computerChoices = getComputerAnswer(answers);
-                const result = playRound(playerChoices, computerChoices);
-                console.log(`Player picked ${playerChoices}`);
-                console.log(`Computer picked ${computerChoices}`);
-                console.log(result); 
-                console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
+                // const playerChoices = 'rock';
+                // const computerChoices = getComputerAnswer(answers);
+                // const result = playRound(playerChoices, computerChoices);
+                // console.log(`Player picked ${playerChoices}`);
+                // console.log(`Computer picked ${computerChoices}`);
+                // console.log(result); 
+                // console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
+               // // console.log(computerWins);
+               // // console.log(playerWins);
                 
                 
             })
@@ -42,26 +44,26 @@
             const paperBtn = document.getElementById('btn2');
             paperBtn.addEventListener('click', ()  => {
                 startNewRound('paper');
-                const playerChoices = 'paper';
-                const computerChoices = getComputerAnswer(answers);
-                console.log(`Player picked ${playerChoices}`);
-                console.log(`Computer picked ${computerChoices}`);
-                const result = playRound(playerChoices, computerChoices);
-                console.log(result); 
-                console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
+                // const playerChoices = 'paper';
+                // const computerChoices = getComputerAnswer(answers);
+                // console.log(`Player picked ${playerChoices}`);
+                // console.log(`Computer picked ${computerChoices}`);
+                // const result = playRound(playerChoices, computerChoices);
+                // console.log(result); 
+                // console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
 
             })
 
             const scissorBtn = document.getElementById('btn3');
             scissorBtn.addEventListener('click', ()  => {
                 startNewRound('scissors');
-                const playerChoices = 'scissors';
-                const computerChoices = getComputerAnswer(answers);
-                console.log(`Player picked ${playerChoices}`);
-                console.log(`Computer picked ${computerChoices}`);
-                const result = playRound(playerChoices, computerChoices);
-                console.log(result); 
-                console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
+                // const playerChoices = 'scissors';
+                // const computerChoices = getComputerAnswer(answers);
+                // console.log(`Player picked ${playerChoices}`);
+                // console.log(`Computer picked ${computerChoices}`);
+                // const result = playRound(playerChoices, computerChoices);
+                // console.log(result); 
+                // console.log(`Score is Player: ${playerScore}, Computer ${computerScore} ` );
             })
 
 
@@ -83,48 +85,41 @@
                     return "It's a draw!";
                 }
                 else if ((playerChoices === 'scissors') && (computerChoices === 'rock')) {
-                    computerWins = computerWins;
+                    computerWins++;
                     computerScore++;
                     return `Rock breaks scissors Computer wins! 1 point`;
 
 
                 } else if ((playerChoices === 'rock') && (computerChoices === 'scissors')) {
-                    playerWins = playerWins;
+                    playerWins++;
                     playerScore++;
                     return `Rock breaks scissors Player Wins! 1 point.`
 
 
                 } else if ((computerChoices === 'paper') && (playerChoices === 'scissors')) {
-                    playerWins = playerWins;
+                    playerWins++;
                     playerScore++;
                     return `Scissors cut paper, Player wins! 1 point`;
 
 
                 } else if ((computerChoices === 'scissors') && (playerChoices === 'paper')) {
-                    computerWins = computerWins;
+                    computerWins++;
                     computerScore++;
                     return `Scissors cut paper, Computer wins!.1 point`;
 
 
                 } else if ((computerChoices === 'paper') && (playerChoices === 'rock')) {
-                    computerWins = computerWins;
+                    computerWins++;
                     computerScore++;
                     return `Paper covers rock, Computer wins! 1 point`;
 
 
                 } else if ((computerChoices === 'rock') && (playerChoices === 'paper')) {
-                    playerWins = playerWins;
+                    playerWins++;
                     playerScore++;
                     return `Paper covers rock. Player wins 1 point`;
 
 
-                }
-
-                else if (currentRound < 5) {
-                currentRound++;
-                waitForButtonClick();
-                } else {
-                    console.log('Game over');
                 }
 
         }
@@ -140,9 +135,14 @@
             // Move on to the next round or end the game
             if (currentRound < 5) {
                 currentRound++;
+                    
                 waitForButtonClick();
             } else {
                 console.log('Game over');
+                console.log(computerWins);
+                console.log(playerWins);
+                  
+
                 if (playerScore > computerScore) {
                     console.log(`You win the game! Score: Player ${playerScore}, Computer ${computerScore}`);
                 } else if (computerScore > playerScore) {
@@ -150,6 +150,11 @@
                 } else {
                     console.log('It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore);
                 }
+                currentRound = 1;
+                playerScore = 0;
+                playerWins = 0;
+                computerScore = 0;
+                computerWins = 0; 
             }
         }
 
