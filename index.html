@@ -23,7 +23,20 @@
             #game-heading{
                 flex: 1;
             }
-            .button-box{
+
+            #display {
+                /* margin:20px 0; */
+                height: 30vh;
+            }
+
+            #winner-display {
+                /* position: absolute; */
+                width: 100%;
+                height: auto;
+                /* margin-top: 10%; */
+                /* display: none; */
+            }
+            #button-box{
                 display:flex;
                 justify-content: space-around;
                 
@@ -31,7 +44,7 @@
             #btn1, #btn2, #btn3 {
                 width:175px;
                 height:75px;
-                margin: 33px auto;
+                margin: 20px auto;
                                 
                
             }
@@ -42,7 +55,7 @@
     </head>
 
     <body>
-        <div class="button-box">
+        <div id="button-box">
         <button id="btn1">Rock</button>
         <button id="btn2">Paper</button>
         <button id="btn3">Scissors</button>
@@ -74,7 +87,8 @@
             gameResultDiv.setAttribute('id', 'main-div');
                 document.body.prepend(gameResultDiv);
 
-            //GameDivHeading
+
+             //GameDivHeading
             const gameDivHeading = document.createElement('h1');
                 gameDivHeading.setAttribute('id', 'game-heading')
                 gameDivHeading.textContent = 'Play Game';
@@ -85,11 +99,33 @@
                 displayHeading.textContent = 'Display';
                 gameResultDiv.append(displayHeading);
 
+            ////PlayersTitles
+            const playersTitles = document.createElement('div');
+                playersTitles.style.display = 'flex';
+                displayHeading.append(playersTitles);
+
+            //PlayTitle
+            const playTitle = document.createElement('div');
+                playTitle.textContent = 'Player Stats';
+                playTitle.style.flex = '.50';
+                playTitle.style.textAlign = 'left';
+                playersTitles.append(playTitle);
+
+
+
+            ////CompTitle
+            const compTitle = document.createElement('div');
+                compTitle.textContent = 'Computer Stats';
+                compTitle.style.flex = '.50';
+                compTitle.style.textAlign = 'right';
+                playersTitles.append(compTitle);
 
 
 
 
 
+
+               
              //////////////   
 
             //Display
@@ -102,29 +138,30 @@
             //DisplaySubDiv
             const displaySubDiv = document.createElement('div');
                 displaySubDiv.setAttribute('id', 'display-sub-div');
-                displaySubDiv.style.flex = '.3332';
+                displaySubDiv.style.flex = '.20';
                 display.append(displaySubDiv);
 
             ///DisplaySubcontainer                                  ////////**
             const displaySubContainer = document.createElement('div');
             displaySubContainer.setAttribute('id', 'display-sub-container');
+            displaySubContainer.style.justifyContent = 'space-between';
             displaySubDiv.append(displaySubContainer);
 
             //PlayerSelection                                   ////////
             const playerSelecion = document.createElement('div');
-                playerSelecion.textContent = 'Player choice: '; 
+                playerSelecion.textContent = ' Choice: '; 
                 playerSelecion.style.textAlign = 'left';
                 displaySubContainer.append(playerSelecion);
 
             //PlayerCurrentPoints                                      /////
             const playerCurrentPoints = document.createElement('div');
-                playerCurrentPoints.textContent = 'Player Score: ';
+                playerCurrentPoints.textContent = ' Score: ';
                 playerCurrentPoints.style.textAlign = 'left';
                 displaySubContainer.append(playerCurrentPoints);
 
             //PlayerGameWins                                    ////////
             const playerGameWins = document.createElement('div');
-                playerGameWins.textContent = 'player game wins';
+                playerGameWins.textContent = ' Games won:';
                 playerGameWins.style.textAlign = 'left';
                 displaySubContainer.append(playerGameWins);
 
@@ -136,7 +173,8 @@
             //DisplaySubDiv3
             const displaySubDiv3 = document.createElement('div');
                 displaySubDiv3.setAttribute('id', 'display-sub-div3');
-                displaySubDiv3.style.flex = '.3332';
+                displaySubDiv3.style.flex = '.60';
+                displaySubDiv3.style.justifyContent ='space-between';
                 display.append(displaySubDiv3)
 
             ///DisplaySubcontainer3
@@ -153,129 +191,135 @@
             //DisplaySubDiv2
             const displaySubDiv2 = document.createElement('div');
                 displaySubDiv2.setAttribute('id', 'display-sub-div2');
-                displaySubDiv2.style.flex = '.3332';
+                displaySubDiv2.style.flex = '.20';
                 display.append(displaySubDiv2)
 
-            ///DisplaySubcontainer2
+            ///DisplaySubcontainer2 computer game info box
             const displaySubContainer2 = document.createElement('div');
             displaySubContainer.setAttribute('id', 'display-sub-container2');
+            displaySubContainer2.style.justifyContent = 'space-between';
+            displaySubContainer2.style.flexDirection = 'column';
             displaySubDiv2.append(displaySubContainer2);
 
             //ComputerSelection                                    //*****
             const computerSelecion = document.createElement('div');
-                computerSelecion.textContent = 'Computer\'s choice: ';
-                computerSelecion.style.textAlign = 'right';
+                computerSelecion.textContent = ' Choice: ';
+                computerSelecion.style.textAlign = 'left';
                 displaySubContainer2.append(computerSelecion);
 
             //ComputerCurrentPoints                               //*****
             const computerCurrentPoints = document.createElement('div');
-                computerCurrentPoints.textContent = 'Computer Score: ';
-                computerCurrentPoints.style.textAlign = 'right';
+                computerCurrentPoints.textContent = ' Score: ';
+                computerCurrentPoints.style.textAlign = 'left';
                 displaySubContainer2.append(computerCurrentPoints);
 
             //CompyterGameWins                              ///*******
             const computerGameWins = document.createElement('div');
-                computerGameWins.textContent = 'computer game wins';
-                computerGameWins.style.textAlign = 'right';
+                computerGameWins.textContent = ' Game Wins';
+                computerGameWins.style.textAlign = 'left';
                 displaySubContainer2.append(computerGameWins);
-            
-            
-            
 
-            // //ComputerSelection                                    //*****
-            // const computerSelecion = document.createElement('div');
-            //     computerSelecion.textContent = 'Computer\'s choice: ';
-            //     computerSelecion.style.textAlign = 'right';
-            //     displaySubContainer3.append(computerSelecion);
-
-            // //ComputerCurrentPoints                               //*****
-            // const computerCurrentPoints = document.createElement('div');
-            //     computerCurrentPoints.textContent = 'Computer Score: ';
-            //     computerCurrentPoints.style.textAlign = 'right';
-            //     displaySubContainer3.append(computerCurrentPoints);
-
-            // //ComputerGameWins                              ///*******
-            // const computerGameWins = document.createElement('div');
-            //     computerGameWins.textContent = 'computer game wins';
-            //     computerGameWins.style.textAlign = 'right';
-            //     displaySubContainer3.append(computerGameWins);
 
             //*************************************************////
-            ///WinnerDisplay
+
+
+
+
+            ///WinnerDisplay                //////////////////////
             const winnerDisplay = document.createElement('div');
             winnerDisplay.setAttribute('id', 'winner-display');
-            gameResultDiv.append(winnerDisplay);
+            winnerDisplay.style.justifyContent = 'space-between';
+            displaySubDiv3.append(winnerDisplay);
 
-            //RoundCurrent
-            const roundCurrent = document.createElement('div');
-                display.append(roundCurrent);
-
-            
-
-            
-
-            // const currentPoint = document.createElement('div');
-            //     // currentPoint.textContent = 'currentPoint';
-            //     display.append(currentPoint);
+            const subHeading = document.createElement('div');
+                subHeading.style.textAlign = 'center';
+                subHeading.style.fontSize = '16px';
+                subHeading.style.marginBottom = '0';
+                subHeading.textContent = ''
+                
+                winnerDisplay.append(subHeading);
 
             
+            //RoundDisplay
+            const roundDisplay = document.createElement('div');
+                roundDisplay.setAttribute('id', 'round-display');
+                roundDisplay.textContent = 'Round: 0';
+                gameResultDiv.append(roundDisplay);
+                console.log(roundDisplay)
 
-            // const roundResult= document.createElement('div');
-            //     roundResult.textContent = 'round Result';
-            //     display.append(roundResult);
 
             //RondWinner     **********
             const roundWinner= document.createElement('div');
-                roundWinner.textContent = 'round Winner';
-                winnerDisplay.append(roundWinner);
+                roundWinner.textContent = 'Round Results';
+                gameResultDiv.append(roundWinner);
 
-            //GameOver        ***********
-            const gameOver = document.createElement('div');
-                gameOver.textContent = 'game over';
-                winnerDisplay.append(gameOver);
 
             
+
+
+
+            /////END Of GAME /////////////////////////////    
+
+            
+            //GameOver        ***********
+            const gameOver = document.createElement('div');
+                // gameOver.textContent = 'game over';
+                winnerDisplay.append(gameOver);            
 
             
             //WinnerMessage       **********
             const winnerMessage = document.createElement('div');
-                winnerMessage.textContent = 'winner msg';
+                // winnerMessage.textContent = 'winner msg';
                 winnerDisplay.append(winnerMessage);
 
 
-            //FooterBar
-            const footerBar = document.createElement('div');
-            footerBar.textContent = 'footer bar'; 
-            footerBar.style.height = '125px';
-            gameResultDiv.append(footerBar)  
+             ///////////////////BUTTONS///////////////////////////////
 
+            
 
-
-
-
-
-
-            ///////////////////BUTTONS///////////////////////////////
+            ///ButtonsContainer
+            const buttonsContainer = document.getElementById('button-box');
+            gameResultDiv.append(buttonsContainer);
 
             //RockBtn
             const rockBtn = document.getElementById('btn1');
+            rockBtn.append()
             rockBtn.addEventListener('click', ()  => {
                 startNewRound('rock');      
-            })
+            });
             
             //PaperBtn
             const paperBtn = document.getElementById('btn2');
             paperBtn.addEventListener('click', ()  => {
                 startNewRound('paper');         
-            })
+            });
 
             //ScissorsBtn
             const scissorBtn = document.getElementById('btn3');
             scissorBtn.addEventListener('click', ()  => {
                 startNewRound('scissors');  
-            })
+            });
 
 
+            //FooterBar
+            const footerBar = document.createElement('div');
+            footerBar.textContent = 'footer bar'; 
+            footerBar.style.height = '75px';
+            console.log(footerBar)
+            gameResultDiv.append(footerBar);
+
+
+
+
+              
+
+
+
+
+
+
+
+           
             //////////////////FUNCTIONS/////////////////////////////
 
             function getComputerAnswer(answers) {
@@ -335,21 +379,21 @@
 
             // Function to start a new round
             function startNewRound(playerChoice) {
+                subHeading.textContent = '';
                 const computerChoices = getComputerAnswer(answers);
                 const result = playRound(playerChoice, computerChoices);
-                roundCurrent.textContent = `Round: ${currentRound}`;
-                console.log(roundCurrent);
-             // roundResult.textContent = `Player chose ${playerChoice}, Computer chose ${computerChoices}`;
+                roundDisplay.textContent = `Round: ${currentRound}`;
                 roundWinner.textContent = result;
-                computerSelecion.textContent = `Computer chose: ${computerChoices}`;
-                playerSelecion.textContent = `Player chose: ${playerChoice}`;
-                playerCurrentPoints.textContent = `Player Score: ${playerScore}`;
-                computerCurrentPoints.textContent = `Computer Score: ${computerScore}`;
-                playerGameWins.textContent = `Player Games won: ${playerWins}`;
-                computerGameWins.textContent = `Computer Games Won: ${computerWins}`;
+                computerSelecion.textContent = ` ${computerChoices}`;
+                playerSelecion.textContent = ` ${playerChoice}`;
+                playerCurrentPoints.textContent = ` Score: ${playerScore}`;
+                computerCurrentPoints.textContent = ` Score: ${computerScore}`;
+                playerGameWins.textContent = ` Games won: ${playerWins}`;
+                computerGameWins.textContent = ` Games Won: ${computerWins}`;
                 gameOver.textContent = '';
                 winnerMessage.textContent = '';
                 gameDivHeading.textContent = 'Game Play';
+                
                                 
                 // Move on to the next round or end the game
                 if (currentRound < 5) {
@@ -357,15 +401,18 @@
                 } 
                 else 
                 {
-                    gameDivHeading.textContent = 'Game Over!';
                     gameOver.textContent = 'Game over';
-
+                    
                     if (playerScore > computerScore) {
                         winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+                        subHeading.textContent = 'Play Again!';
+                        winnerDisplay.append(subHeading);
                     } else if (computerScore > playerScore) {
                         winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
                     } else {
                         winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
+                        subHeading.textContent = 'Play Again!';
+                        winnerDisplay.append(subHeading);
                     }
                     
                     currentRound = 1;
@@ -374,12 +421,9 @@
                     computerScore = 0;
                     computerWins = 0;                 
                     gameDivHeading.textContent = 'Game Results';
-                    subHeading = document.createElement('p');
-                    subHeading.textContent = 'Play again';
-                    subHeading.style.textAlign = 'center';
-                    subHeading.style.fontSize = '16px';
-                    // subHeading.style.textAlign = 'center';
-                    gameDivHeading.append(subHeading);
+                    winnerDisplay.style.display = 'visible';
+                    subHeading.textContent = 'Play Again!';
+                    
 
              
             }
