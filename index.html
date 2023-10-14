@@ -141,12 +141,6 @@
                 compTitle.style.textAlign = 'right';
                 playersTitles.append(compTitle);
 
-
-
-
-
-
-               
              //////////////   
 
             //Display
@@ -192,10 +186,6 @@
                 playerGameWins.style.padding = '2vh 10px'; 
                 displaySubContainer.append(playerGameWins);
 
-
-
-
-
                 ////33333
             //DisplaySubDiv3
             const displaySubDiv3 = document.createElement('div');
@@ -209,11 +199,6 @@
             const displaySubContainer3 = document.createElement('div');
             displaySubContainer3.setAttribute('id', 'display-sub-container3');
             displaySubDiv3.append(displaySubContainer3);
-
-
-
-
-
 
             ////
             //DisplaySubDiv2
@@ -230,17 +215,13 @@
             displaySubDiv2.append(displaySubContainer2);
 
             //ComputerSelection                                    //*****
-            const computerSelecion = document.createElement('div');
-                computerSelecion.textContent = ' Choice: ';
-                computerSelecion.style.textAlign = 'left';
-                computerSelecion.style.height = '200px';
-                computerSelecion.style.padding = '2vh 10px'; 
-                displaySubContainer2.append(computerSelecion);
-
-            // const rockImg = document.createElement('img');
-            //     rockImg.src = 'rock-right.png';
-            //     // computerSelecion.innerHTML = '';
-            //     computerSelecion.prepend(rockImg);    
+            const computerSelection = document.createElement('div');
+                computerSelection.textContent = ' Choice: ';
+                computerSelection.style.textAlign = 'left';
+                computerSelection.style.height = '200px';
+                computerSelection.style.padding = '2vh 10px'; 
+                displaySubContainer2.append(computerSelection);
+    
 
             //ComputerCurrentPoints                               //*****
             const computerCurrentPoints = document.createElement('div');
@@ -259,9 +240,6 @@
 
             //*************************************************////
 
-
-
-
             ///WinnerDisplay                //////////////////////
             const winnerDisplay = document.createElement('div');
             winnerDisplay.setAttribute('id', 'winner-display');
@@ -272,51 +250,26 @@
 
             ///SubHeading
             const subHeading = document.createElement('div');
-                // subHeading.style.textAlign = 'center';
-                // subHeading.style.fontSize = '16px';
-                // subHeading.style.marginBottom = '0';
                 subHeading.textContent = ''
                 
                 winnerDisplay.append(subHeading);
-
-            
-
-
+      
             //RondWinner     **********
             const roundWinner= document.createElement('div');
                 roundWinner.textContent = 'Round Results';
-                // displaySubContainer.append(roundWinner);
-                // displaySubContainer2.append(roundWinner);
                 displaySubContainer3.append(roundWinner);
-
-
             
-
-
-
-            /////END Of GAME /////////////////////////////    
-
+        /////END Of GAME /////////////////////////////    
             
             //GameOver        ***********
             const gameOver = document.createElement('div');
-                // gameOver.textContent = 'game over';
-
-                winnerDisplay.append(gameOver);            
-
-            
+               winnerDisplay.append(gameOver);            
+             
             //WinnerMessage       **********
             const winnerMessage = document.createElement('div');
-                // winnerMessage.textContent = 'winner msg';
                 winnerDisplay.append(winnerMessage);
 
-
-
-
-
-
-             ///////////////////BUTTONS///////////////////////////////
-
-            
+         ///////////////////BUTTONS///////////////////////////////
 
             ///ButtonsContainer
             const buttonsContainer = document.getElementById('button-box');
@@ -334,7 +287,7 @@
                 playerSelection.append(imgRockDiv);
                 const imgRockElement = document.createElement('img');
 
-                imgRockElement.src = 'rock-left.png';    
+                imgRockElement.src = 'images/rock-left.png';    
                 imgRockElement.alt = 'Rock hand sign';    
                 // imgRockElement.width = 100;
                 // imgRockElement.height = 100;
@@ -351,7 +304,7 @@
                 playerSelection.innerHTML = '';
                 playerSelection.append(imgPaperDiv);
                 const imgPaperElement = document.createElement('img');
-                imgPaperElement.src = 'paper-left.png';    
+                imgPaperElement.src = 'images/paper-left.png';    
                 imgPaperElement.alt = 'Paper hand sign';    
                 imgPaperDiv.append(imgPaperElement);          
             });
@@ -366,7 +319,7 @@
                 playerSelection.innerHTML = '';
                 playerSelection.append(imgScissorsDiv);
                 const imgScissorsElement = document.createElement('img');
-                imgScissorsElement.src = 'scissors-left.png';    
+                imgScissorsElement.src = 'images/scissors-left.png';    
                 imgScissorsElement.alt = 'Scissors hand sign';    
                 imgScissorsDiv.append(imgScissorsElement); 
             });
@@ -379,23 +332,8 @@
             console.log(footerBar)
             gameResultDiv.append(footerBar);
 
-
-
-
-              
-
-            function computerOptionsImg(randomAnswer) {
-                answers[0] = document.createElement('img');
-                answers[0].src = 'rock-right.png';
-                computerSelecion.append(answers[0]);
-            }
-
-
-                
-
-
            
-            //////////////////FUNCTIONS/////////////////////////////
+        //////////////////FUNCTIONS/////////////////////////////
 
             function getComputerAnswer(answers) {
                 const randomIndex = Math.floor(Math.random() * answers.length);
@@ -403,9 +341,7 @@
                     return randomAnswer;
                                 
             }
-
-            
-            
+           
             function playRound(playerChoices, computerChoices) {
 
                 if (!answers.includes(playerChoices)) {
@@ -465,7 +401,7 @@
                 roundDisplay.textContent = `Round: ${currentRound}`;
                 console.log(currentRound)
                 roundWinner.textContent = result;
-                computerSelecion.textContent = ` ${computerChoices}`;
+                computerSelection.textContent = ` ${computerChoices}`;
                 playerSelection.textContent = ` ${playerChoice}`;
                 playerCurrentPoints.textContent = ` Score: ${playerScore}`;
                 computerCurrentPoints.textContent = ` Score: ${computerScore}`;
@@ -478,10 +414,10 @@
 
                 if (computerChoices === "rock") {
                     const rockImg = document.createElement('img');
-                    rockImg.src = 'rock-right.png';
+                    rockImg.src = 'images/rock-right.png';
                     computerChoices = rockImg;
-                    computerSelecion.innerHTML = '';
-                    computerSelecion.append(rockImg); 
+                    computerSelection.innerHTML = '';
+                    computerSelection.append(rockImg); 
                     console.log(computerChoices);
                     // currentRound++;
 
@@ -521,10 +457,10 @@
 
                 } else if (computerChoices === "paper") {
                     const paperImg = document.createElement('img');
-                    paperImg.src = 'paper-right.png';
+                    paperImg.src = 'images/paper-right.png';
                     computerChoices = paperImg;
-                    computerSelecion.innerHTML = '';
-                    computerSelecion.append(paperImg); 
+                    computerSelection.innerHTML = '';
+                    computerSelection.append(paperImg); 
                     console.log(computerChoices);
                     // currentRound++;
 
@@ -564,10 +500,10 @@
 
                 } else if (computerChoices === "scissors") {
                     const scissorsImg = document.createElement('img');
-                    scissorsImg.src = 'scissors-right.png';
+                    scissorsImg.src = 'images/scissors-right.png';
                     computerChoices = scissorsImg;
-                    computerSelecion.innerHTML = '';
-                    computerSelecion.append(scissorsImg); 
+                    computerSelection.innerHTML = '';
+                    computerSelection.append(scissorsImg); 
                     console.log(computerChoices);
                     // currentRound++;
 
@@ -608,45 +544,6 @@
                 else {
                     return 'Error, Please try again.';
                 }
-
-                
-                
-                                
-                // Move on to the next round or end the game
-            //     if (currentRound < 5) {
-            //         currentRound++;     
-            //     } 
-            //     else 
-            //     {
-            //         gameOver.textContent = 'Game over';
-                    
-            //         if (playerScore > computerScore) {
-            //             winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
-            //             subHeading.textContent = 'Play Again!';
-            //             winnerDisplay.append(subHeading);
-            //         } else if (computerScore > playerScore) {
-            //             winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
-            //         } else {
-            //             winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
-            //             subHeading.textContent = 'Play Again!';
-            //             winnerDisplay.append(subHeading);
-            //         }
-                    
-            //         currentRound = 1;
-            //         playerScore = 0;
-            //         playerWins = 0;
-            //         computerScore = 0;
-            //         computerWins = 0;                 
-            //         gameDivHeading.textContent = 'Game Results';
-            //         winnerDisplay.style.display = 'visible';
-            //         subHeading.textContent = 'Play Again!';
-                    
-
-             
-            // }
-               
-
-                
             }
 
             // Function to wait for button click event
