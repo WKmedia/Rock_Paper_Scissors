@@ -8,14 +8,18 @@
 
         <style>
             
+
             *{
                 box-sizing:border-box;
+                font-size:1.1em;
                 border: solid 1px red;
             }
             div {
                text-align: center;
             }
             #main-div {
+                max-width:1080px;
+                margin:auto;
                 display:flex;
                 flex-direction: column;
                 justify-content: center;
@@ -26,16 +30,22 @@
 
             #display {
                 /* margin:20px 0; */
-                height: 30vh;
+                height: 450px;
+                /* height: 30vh; */
             }
 
             #winner-display {
-                /* position: absolute; */
-                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 90%;
                 height: auto;
-                /* margin-top: 10%; */
-                /* display: none; */
+                margin: 1.2% 5%;
             }
+            /* #winner-display div {
+               
+             } */
+             
             #button-box{
                 display:flex;
                 justify-content: space-around;
@@ -68,6 +78,7 @@
 
              waitForButtonClick();
             const answers = ["rock", "paper", "scissors"];
+            
             let currentRound = 1;
             let playerScore = 0;
             let playerWins = 0;
@@ -96,8 +107,18 @@
 
             //DisplayHeading
             const displayHeading = document.createElement('h7');
-                displayHeading.textContent = 'Display';
+                displayHeading.textContent = '';
                 gameResultDiv.append(displayHeading);
+
+
+            
+            //RoundDisplay
+            const roundDisplay = document.createElement('div');
+                roundDisplay.setAttribute('id', 'round-display');
+                roundDisplay.textContent = 'Round: 0';
+                displayHeading.append(roundDisplay);
+                console.log(roundDisplay)
+
 
             ////PlayersTitles
             const playersTitles = document.createElement('div');
@@ -130,7 +151,7 @@
 
             //Display
             const display = document.createElement('div');
-                display.setAttribute('id', 'display')
+                display.setAttribute('id', 'display');
                 display.style.display = 'flex';
                 gameResultDiv.append(display);
 
@@ -138,24 +159,29 @@
             //DisplaySubDiv
             const displaySubDiv = document.createElement('div');
                 displaySubDiv.setAttribute('id', 'display-sub-div');
-                displaySubDiv.style.flex = '.20';
+                displaySubDiv.style.flex = '.25';
                 display.append(displaySubDiv);
 
             ///DisplaySubcontainer                                  ////////**
             const displaySubContainer = document.createElement('div');
             displaySubContainer.setAttribute('id', 'display-sub-container');
-            displaySubContainer.style.justifyContent = 'space-between';
+            // displaySubContainer.style.padding = '1vh 0';
+            // displaySubContainer2.style.flexDirection = '';
             displaySubDiv.append(displaySubContainer);
 
             //PlayerSelection                                   ////////
-            const playerSelecion = document.createElement('div');
-                playerSelecion.textContent = ' Choice: '; 
-                playerSelecion.style.textAlign = 'left';
-                displaySubContainer.append(playerSelecion);
+            const playerSelection = document.createElement('div');
+                playerSelection.textContent = ' Choice: ';
+                playerSelection.style.padding = '2vh 10px'; 
+                playerSelection.style.height = '200px';
+                playerSelection.style.textAlign = 'left';
+                // playerSelection.style.overflow = 'hidden';
+                displaySubContainer.append(playerSelection);
 
             //PlayerCurrentPoints                                      /////
             const playerCurrentPoints = document.createElement('div');
                 playerCurrentPoints.textContent = ' Score: ';
+                playerCurrentPoints.style.padding = '2vh 10px'; 
                 playerCurrentPoints.style.textAlign = 'left';
                 displaySubContainer.append(playerCurrentPoints);
 
@@ -163,6 +189,7 @@
             const playerGameWins = document.createElement('div');
                 playerGameWins.textContent = ' Games won:';
                 playerGameWins.style.textAlign = 'left';
+                playerGameWins.style.padding = '2vh 10px'; 
                 displaySubContainer.append(playerGameWins);
 
 
@@ -173,9 +200,10 @@
             //DisplaySubDiv3
             const displaySubDiv3 = document.createElement('div');
                 displaySubDiv3.setAttribute('id', 'display-sub-div3');
-                displaySubDiv3.style.flex = '.60';
-                displaySubDiv3.style.justifyContent ='space-between';
-                display.append(displaySubDiv3)
+                displaySubDiv3.style.flex = '.50';
+                // displaySubDiv3.style.justifyContent ='space-between';
+                display.append(displaySubDiv3);
+
 
             ///DisplaySubcontainer3
             const displaySubContainer3 = document.createElement('div');
@@ -191,7 +219,7 @@
             //DisplaySubDiv2
             const displaySubDiv2 = document.createElement('div');
                 displaySubDiv2.setAttribute('id', 'display-sub-div2');
-                displaySubDiv2.style.flex = '.20';
+                displaySubDiv2.style.flex = '.25';
                 display.append(displaySubDiv2)
 
             ///DisplaySubcontainer2 computer game info box
@@ -205,18 +233,27 @@
             const computerSelecion = document.createElement('div');
                 computerSelecion.textContent = ' Choice: ';
                 computerSelecion.style.textAlign = 'left';
+                computerSelecion.style.height = '200px';
+                computerSelecion.style.padding = '2vh 10px'; 
                 displaySubContainer2.append(computerSelecion);
+
+            // const rockImg = document.createElement('img');
+            //     rockImg.src = 'rock-right.png';
+            //     // computerSelecion.innerHTML = '';
+            //     computerSelecion.prepend(rockImg);    
 
             //ComputerCurrentPoints                               //*****
             const computerCurrentPoints = document.createElement('div');
                 computerCurrentPoints.textContent = ' Score: ';
                 computerCurrentPoints.style.textAlign = 'left';
+                computerCurrentPoints.style.padding = '2vh 10px'; 
                 displaySubContainer2.append(computerCurrentPoints);
 
             //CompyterGameWins                              ///*******
             const computerGameWins = document.createElement('div');
-                computerGameWins.textContent = ' Game Wins';
+                computerGameWins.textContent = ' Games Won:';
                 computerGameWins.style.textAlign = 'left';
+                computerGameWins.style.padding = '2vh 10px'; 
                 displaySubContainer2.append(computerGameWins);
 
 
@@ -228,30 +265,29 @@
             ///WinnerDisplay                //////////////////////
             const winnerDisplay = document.createElement('div');
             winnerDisplay.setAttribute('id', 'winner-display');
-            winnerDisplay.style.justifyContent = 'space-between';
+            // winnerDisplay.
+            
             displaySubDiv3.append(winnerDisplay);
 
+
+            ///SubHeading
             const subHeading = document.createElement('div');
-                subHeading.style.textAlign = 'center';
-                subHeading.style.fontSize = '16px';
-                subHeading.style.marginBottom = '0';
+                // subHeading.style.textAlign = 'center';
+                // subHeading.style.fontSize = '16px';
+                // subHeading.style.marginBottom = '0';
                 subHeading.textContent = ''
                 
                 winnerDisplay.append(subHeading);
 
             
-            //RoundDisplay
-            const roundDisplay = document.createElement('div');
-                roundDisplay.setAttribute('id', 'round-display');
-                roundDisplay.textContent = 'Round: 0';
-                gameResultDiv.append(roundDisplay);
-                console.log(roundDisplay)
 
 
             //RondWinner     **********
             const roundWinner= document.createElement('div');
                 roundWinner.textContent = 'Round Results';
-                gameResultDiv.append(roundWinner);
+                // displaySubContainer.append(roundWinner);
+                // displaySubContainer2.append(roundWinner);
+                displaySubContainer3.append(roundWinner);
 
 
             
@@ -264,6 +300,7 @@
             //GameOver        ***********
             const gameOver = document.createElement('div');
                 // gameOver.textContent = 'game over';
+
                 winnerDisplay.append(gameOver);            
 
             
@@ -271,6 +308,10 @@
             const winnerMessage = document.createElement('div');
                 // winnerMessage.textContent = 'winner msg';
                 winnerDisplay.append(winnerMessage);
+
+
+
+
 
 
              ///////////////////BUTTONS///////////////////////////////
@@ -283,21 +324,51 @@
 
             //RockBtn
             const rockBtn = document.getElementById('btn1');
-            rockBtn.append()
+            // rockBtn.append()
             rockBtn.addEventListener('click', ()  => {
-                startNewRound('rock');      
+                startNewRound('rock'); 
+                const imgRockDiv = document.createElement('div');
+                imgRockDiv.style.maxWidth = 100;
+                imgRockDiv.style.maxHeight = 100;
+                playerSelection.innerHTML = '';
+                playerSelection.append(imgRockDiv);
+                const imgRockElement = document.createElement('img');
+
+                imgRockElement.src = 'rock-left.png';    
+                imgRockElement.alt = 'Rock hand sign';    
+                // imgRockElement.width = 100;
+                // imgRockElement.height = 100;
+                imgRockDiv.append(imgRockElement);    
             });
             
             //PaperBtn
             const paperBtn = document.getElementById('btn2');
             paperBtn.addEventListener('click', ()  => {
-                startNewRound('paper');         
+                startNewRound('paper');
+                const imgPaperDiv = document.createElement('div');
+                imgPaperDiv.style.maxWidth = 100;
+                imgPaperDiv.style.maxHeight = 100;
+                playerSelection.innerHTML = '';
+                playerSelection.append(imgPaperDiv);
+                const imgPaperElement = document.createElement('img');
+                imgPaperElement.src = 'paper-left.png';    
+                imgPaperElement.alt = 'Paper hand sign';    
+                imgPaperDiv.append(imgPaperElement);          
             });
 
             //ScissorsBtn
             const scissorBtn = document.getElementById('btn3');
             scissorBtn.addEventListener('click', ()  => {
-                startNewRound('scissors');  
+                startNewRound('scissors'); 
+                const imgScissorsDiv = document.createElement('div');
+                imgScissorsDiv.style.maxWidth = 100;
+                imgScissorsDiv.style.maxHeight = 100;
+                playerSelection.innerHTML = '';
+                playerSelection.append(imgScissorsDiv);
+                const imgScissorsElement = document.createElement('img');
+                imgScissorsElement.src = 'scissors-left.png';    
+                imgScissorsElement.alt = 'Scissors hand sign';    
+                imgScissorsDiv.append(imgScissorsElement); 
             });
 
 
@@ -313,19 +384,27 @@
 
               
 
+            function computerOptionsImg(randomAnswer) {
+                answers[0] = document.createElement('img');
+                answers[0].src = 'rock-right.png';
+                computerSelecion.append(answers[0]);
+            }
 
 
-
-
+                
 
 
            
             //////////////////FUNCTIONS/////////////////////////////
 
             function getComputerAnswer(answers) {
-                const randomAnswer = Math.floor(Math.random() * answers.length);
-                return answers[randomAnswer];
+                const randomIndex = Math.floor(Math.random() * answers.length);
+                const randomAnswer = answers[randomIndex];
+                    return randomAnswer;
+                                
             }
+
+            
             
             function playRound(playerChoices, computerChoices) {
 
@@ -380,12 +459,14 @@
             // Function to start a new round
             function startNewRound(playerChoice) {
                 subHeading.textContent = '';
-                const computerChoices = getComputerAnswer(answers);
+                let computerChoices = getComputerAnswer(answers);
                 const result = playRound(playerChoice, computerChoices);
+            
                 roundDisplay.textContent = `Round: ${currentRound}`;
+                console.log(currentRound)
                 roundWinner.textContent = result;
                 computerSelecion.textContent = ` ${computerChoices}`;
-                playerSelecion.textContent = ` ${playerChoice}`;
+                playerSelection.textContent = ` ${playerChoice}`;
                 playerCurrentPoints.textContent = ` Score: ${playerScore}`;
                 computerCurrentPoints.textContent = ` Score: ${computerScore}`;
                 playerGameWins.textContent = ` Games won: ${playerWins}`;
@@ -394,39 +475,175 @@
                 winnerMessage.textContent = '';
                 gameDivHeading.textContent = 'Game Play';
                 
+
+                if (computerChoices === "rock") {
+                    const rockImg = document.createElement('img');
+                    rockImg.src = 'rock-right.png';
+                    computerChoices = rockImg;
+                    computerSelecion.innerHTML = '';
+                    computerSelecion.append(rockImg); 
+                    console.log(computerChoices);
+                    // currentRound++;
+
+                    if (currentRound < 5) {
+                            currentRound++;     
+                        } 
+                        else 
+                        {
+                            gameOver.textContent = 'Game over';
+                            
+                            if (playerScore > computerScore) {
+                                winnerMessage.textContent = `You win the game! Score is Player: ${playerScore}, Computer: ${computerScore}`;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            } else if (computerScore > playerScore) {
+                                winnerMessage.textContent = `Computer wins the game! Score is Player: ${playerScore}, Computer: ${computerScore}`;
+                            } else {
+                                winnerMessage.textContent = 'It\'s a tie! Score is Player: ' + playerScore + ', Computer: ' + computerScore;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            }
+                            
+                            currentRound = 1;
+                            playerScore = 0;
+                            playerWins = 0;
+                            computerScore = 0;
+                            computerWins = 0;                 
+                            gameDivHeading.textContent = 'Game Results';
+                            winnerDisplay.style.display = 'visible';
+                            subHeading.textContent = 'Play Again!';
+                            
+
+             
+                        }
+
+                    return {computerChoices, playerChoice};
+
+                } else if (computerChoices === "paper") {
+                    const paperImg = document.createElement('img');
+                    paperImg.src = 'paper-right.png';
+                    computerChoices = paperImg;
+                    computerSelecion.innerHTML = '';
+                    computerSelecion.append(paperImg); 
+                    console.log(computerChoices);
+                    // currentRound++;
+
+                    if (currentRound < 5) {
+                         currentRound++;     
+                        } 
+                        else 
+                        {
+                            gameOver.textContent = 'Game over';
+                            
+                            if (playerScore > computerScore) {
+                                winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            } else if (computerScore > playerScore) {
+                                winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+                            } else {
+                                winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            }
+                            
+                            currentRound = 1;
+                            playerScore = 0;
+                            playerWins = 0;
+                            computerScore = 0;
+                            computerWins = 0;                 
+                            gameDivHeading.textContent = 'Game Results';
+                            winnerDisplay.style.display = 'visible';
+                            subHeading.textContent = 'Play Again!';
+                            
+
+                    
+                    }
+
+                    return computerChoices;
+
+                } else if (computerChoices === "scissors") {
+                    const scissorsImg = document.createElement('img');
+                    scissorsImg.src = 'scissors-right.png';
+                    computerChoices = scissorsImg;
+                    computerSelecion.innerHTML = '';
+                    computerSelecion.append(scissorsImg); 
+                    console.log(computerChoices);
+                    // currentRound++;
+
+                    if (currentRound < 5) {
+                        currentRound++;     
+                        } 
+                        else 
+                        {
+                            gameOver.textContent = 'Game over';
+                            
+                            if (playerScore > computerScore) {
+                                winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            } else if (computerScore > playerScore) {
+                                winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+                            } else {
+                                winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
+                                subHeading.textContent = 'Play Again!';
+                                winnerDisplay.append(subHeading);
+                            }
+                            
+                            currentRound = 1;
+                            playerScore = 0;
+                            playerWins = 0;
+                            computerScore = 0;
+                            computerWins = 0;                 
+                            gameDivHeading.textContent = 'Game Results';
+                            winnerDisplay.style.display = 'visible';
+                            subHeading.textContent = 'Play Again!';
+                            
+
+                    
+                    }
+
+                    return computerChoices;
+                }
+                else {
+                    return 'Error, Please try again.';
+                }
+
+                
+                
                                 
                 // Move on to the next round or end the game
-                if (currentRound < 5) {
-                    currentRound++;     
-                } 
-                else 
-                {
-                    gameOver.textContent = 'Game over';
+            //     if (currentRound < 5) {
+            //         currentRound++;     
+            //     } 
+            //     else 
+            //     {
+            //         gameOver.textContent = 'Game over';
                     
-                    if (playerScore > computerScore) {
-                        winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
-                        subHeading.textContent = 'Play Again!';
-                        winnerDisplay.append(subHeading);
-                    } else if (computerScore > playerScore) {
-                        winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
-                    } else {
-                        winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
-                        subHeading.textContent = 'Play Again!';
-                        winnerDisplay.append(subHeading);
-                    }
+            //         if (playerScore > computerScore) {
+            //             winnerMessage.textContent = `You win the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+            //             subHeading.textContent = 'Play Again!';
+            //             winnerDisplay.append(subHeading);
+            //         } else if (computerScore > playerScore) {
+            //             winnerMessage.textContent = `Computer wins the game! Score: Player ${playerScore}, Computer ${computerScore}`;
+            //         } else {
+            //             winnerMessage.textContent = 'It\'s a tie! Score: Player ' + playerScore + ', Computer ' + computerScore;
+            //             subHeading.textContent = 'Play Again!';
+            //             winnerDisplay.append(subHeading);
+            //         }
                     
-                    currentRound = 1;
-                    playerScore = 0;
-                    playerWins = 0;
-                    computerScore = 0;
-                    computerWins = 0;                 
-                    gameDivHeading.textContent = 'Game Results';
-                    winnerDisplay.style.display = 'visible';
-                    subHeading.textContent = 'Play Again!';
+            //         currentRound = 1;
+            //         playerScore = 0;
+            //         playerWins = 0;
+            //         computerScore = 0;
+            //         computerWins = 0;                 
+            //         gameDivHeading.textContent = 'Game Results';
+            //         winnerDisplay.style.display = 'visible';
+            //         subHeading.textContent = 'Play Again!';
                     
 
              
-            }
+            // }
                
 
                 
